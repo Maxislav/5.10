@@ -10,13 +10,15 @@ requirejs.config({
         app: 'js/app',
         jquery: 'lib/jquery/jquery-1.11.1.min',
         leaflet: 'lib/leaflet/leaflet',
-        basemarker: 'module/basemarker/basemarker'
+        basemarker: 'module/basemarker/basemarker',
+        text: 'lib/requirejs/text',
+        build: 'build/scripts.min'
     },
 
     shim:{
         app: {
             deps:[
-                'jquery',
+                'build',
                 'leaflet'
             ]
         }

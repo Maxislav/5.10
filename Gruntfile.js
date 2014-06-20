@@ -3,7 +3,15 @@ module.exports = function (grunt) {
     // Задачи
     grunt.initConfig({
         // Склеиваем
-
+        concat: {
+            main: {
+                src: [
+                    'lib/jquery/jquery-1.11.1.min.js',
+                    'lib/jquery/jquery.tinyscrollbar.js'
+                ],
+                dest: 'build/scripts.js'
+            }
+        },
         uglify: {
             options: {
                   sourceMap: true
@@ -11,9 +19,7 @@ module.exports = function (grunt) {
             main: {
                 files: {
                     // Результат задачи concat
-                    'build/scripts.min.js': [
-                        ""
-                    ]
+                    'build/scripts.min.js': '<%= concat.main.dest %>'
 
                 }
             }
@@ -33,7 +39,9 @@ module.exports = function (grunt) {
                   //  "module/dtp/dtp.css": "module/dtp/dtp.less",
                     "build/css.css": [
                         "lib/leaflet/leaflet.css",
-                       "css/main.less"
+                       "css/main.less",
+                        "module/basemarker/basemarker.less",
+                        "css/tinyscrollbar.css"
                     ]
                 }
             }
@@ -43,7 +51,9 @@ module.exports = function (grunt) {
             styles: {
                 // Which files to watch (all .less files recursively in the less directory)
                 files: [
-                    "css/main.less"
+                    "css/main.less",
+                    "module/basemarker/basemarker.less",
+                    "css/tinyscrollbar.css"
                 ],
                 tasks: ['less'],
                 options: {
@@ -55,11 +65,12 @@ module.exports = function (grunt) {
     });
 
     // Загрузка плагинов, установленных с помощью npm install
+    grunt.loadNpmTasks('grunt-contrib-concat');//
     grunt.loadNpmTasks('grunt-contrib-uglify');//
     grunt.loadNpmTasks('grunt-contrib-less');//
     grunt.loadNpmTasks('grunt-contrib-watch');//
 
     // Задача по умолчанию
-    grunt.registerTask('default', ['less','watch' ]);
+    grunt.registerTask('default', ['concat', 'uglify','less','watch' ]);
 
 };

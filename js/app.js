@@ -19,7 +19,6 @@ define(function(){
             ggl =new L.TileLayer('http://mt0.googleapis.com/vt/lyrs=m@207000000&hl=ru&src=api&x={x}&y={y}&z={z}&s=Galile',{maxZoom: 18,minZoom:3});
             gglsats = new L.TileLayer('https://khms1.google.com/kh/v=142&src=app&x={x}&s=&y={y}&z={z}&s=Gali', {maxZoom:18, minZoom:3});
             map.addLayer(ggl);
-
             var baseLayers =  {'OSM':osm, 'Google':ggl, 'Google sat':gglsats  } ;
             var layerControl = L.control.layers(baseLayers); layerControl.addTo(map);
         };
@@ -28,9 +27,10 @@ define(function(){
 
         function setMarker(){
             require([
-                'basemarker'
-            ], function(js){
-                new js();
+                'basemarker',
+                'text!module/basemarker/sprite.html'
+            ], function(js, html){
+                new js(html);
             })
 
         }
