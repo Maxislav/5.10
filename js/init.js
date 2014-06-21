@@ -12,14 +12,15 @@ requirejs.config({
         leaflet: 'lib/leaflet/leaflet',
         basemarker: 'module/basemarker/basemarker',
         text: 'lib/requirejs/text',
-        build: 'build/scripts.min'
+        build: 'build/scripts.min',
+        addpoint: 'module/addpoint/addpoint'
     },
 
     shim:{
         app: {
             deps:[
-                'build',
-                'leaflet'
+                'build'
+               // 'leaflet'
             ]
         }
     }

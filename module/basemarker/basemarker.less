@@ -5,21 +5,61 @@
   position: absolute;
   left: 5px;
   top: 5px;
-  box-shadow: 0 1px 2px black,  0 0px 5px white;
-  padding: 5px;
+  box-shadow: 0 0px 2px black,  0 0px 5px white;
+
+  .contener-scroll{
+    padding: 5px;
+  }
   .row{
     border-radius: 3px;
     border: 1px solid grey;
     padding: 2px;
     margin: 5px 0;
+    
     &:hover{
       background: #ffffff;
       box-shadow: 0 0 2px white, 0 0 5px white;
     }
+    .title{
+      font-weight: bold;
+      padding: 5px 0;
+      border-bottom: 1px solid #cdcdcd;
+      .ico-title{
+        float: right;
+        width: 22px;
+        height: 16px;
+        background: url("../img/510title.png") no-repeat center;
+        background-size: 100% 100%;
+
+      }
+
+    }
+    .content{
+      padding: 5px 0 0 0;
+    }
+
   }
-  .title{
-    font-weight: bold;
-    margin: 5px;
+  .footer{
+    bottom: 0;
+
+    background: darkred;
+    color: #ffffff;
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    text-align: center;
+    &>div{
+      margin: 5px;
+    }
+    &:hover{
+      text-shadow: 0 0 10px #fff ;
+    }
+    &:active{
+     box-shadow: inset 0px 0px 10px rgba(0,0,0,0.7);
+     background: #690000;
+      text-shadow: 0 0 2px #fff, 0 0 10px #fff ;
+    }
   }
+
 
 }

@@ -27,7 +27,8 @@ if (mysql_num_rows($res) > 0) {
                 'name' => $row['name'],
                 'lat'=> $row['lat'],
                 'lng'=> $row['lng'],
-                'popup' => $row['popup']
+                'popup' => $row['popup'],
+                'id' =>$row['id']
             )
         );
         //$c++;
