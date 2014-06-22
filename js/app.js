@@ -13,7 +13,7 @@ define(function(){
 
 
        function initmap(){
-            map = L.map('maped').setView([50.448, 30.53], 11);
+            map = L.map('maped').setView([49.9, 30.49], 7);
 
             osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
             ggl =new L.TileLayer('http://mt0.googleapis.com/vt/lyrs=m@207000000&hl=ru&src=api&x={x}&y={y}&z={z}&s=Galile',{maxZoom: 18,minZoom:3});
