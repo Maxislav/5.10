@@ -49,14 +49,14 @@ define(function () {
         buttonAdd.on('click', function(){
                 require([
                 'addpoint',
-                    'text!module/addpoint/item.html'
+                    'text!module/addpoint/addpoint.html'
                 ], function(js, html){
-                        !addpoint && (addpoint = new js(html));
+                        !addpoint && (addpoint = new js(html, setRow, scrollbar));
                         addpoint.show();
                 })
         })
 
-        function setRow(point) {
+        function setRow(point, success) {
             var row = $(document.createElement('div'));
             var latlng = [point.lat, point.lng];
 
@@ -66,7 +66,7 @@ define(function () {
 
             var title = $(document.createElement('div'));
             title.html(ico).attr('class', 'title');
-            title.append(point.name)
+            title.append(point.name);
             var content = $(document.createElement('div'));
             content.html(point.popup).attr('class', 'content');
             row.append(title).append(content).attr('class','row');
@@ -78,11 +78,53 @@ define(function () {
                     map.setZoom(14)
                 });
 
+            viewport.prepend(row);
+            var marker = L.marker(latlng, {icon: myIcon}).bindPopup(point.popup).addTo(map);
+            marker.on('mouseover', function(){
+                row.addClass('hover');
+                console.log(row.position().top)
+                var h  = scrollbar.find('.overview').height() - ($(window).height()-50);
+               if(h<0){
+                   scrollbar && scrollbar.tinyscrollbar_update(0)
+               }else if(h<row.position().top){
+                    scrollbar && scrollbar.tinyscrollbar_update(h)
+                }else{
+                    scrollbar && scrollbar.tinyscrollbar_update(row.position().top)
+                }
+
+            }).on('mouseout', function(){
+                row.removeClass('hover')
+            });
+
             ico.click(function(){
-               // alert(point.id)
+                // alert(point.id)
+                delRow(point.id, row, marker)
             })
-            viewport.append(row);
-            L.marker(latlng, {icon: myIcon}).bindPopup(point.popup).addTo(map);
+            success && success();
+        }
+
+        function delRow(id, row, marker){
+
+            app.alert.show('Подтвердите', 'Удалить ячейку?', function(){
+                $.ajax({
+                    type: 'post',
+                    url: 'php/delpoint.php',
+                    data: {
+                        id: id
+                    },
+                    success: function(d){
+                        row.remove();
+                        map.removeLayer(marker);
+                        scrollbar.tinyscrollbar_update('relative')
+                    },
+                    error: function(a, b){
+                        console.log(b)
+                    }
+                })
+
+            }, true)
+
+
         }
     }
 })

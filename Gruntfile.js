@@ -43,7 +43,8 @@ module.exports = function (grunt) {
                        "css/main.less",
                         "module/basemarker/basemarker.less",
                         "css/tinyscrollbar.css",
-                        "module/addpoint/addpoint.less"
+                        "module/addpoint/addpoint.less",
+                        "items/alert.less"
                     ]
                 }
             }
@@ -56,7 +57,8 @@ module.exports = function (grunt) {
                     "css/main.less",
                     "module/basemarker/basemarker.less",
                     "css/tinyscrollbar.css",
-                    "module/addpoint/addpoint.less"
+                    "module/addpoint/addpoint.less",
+                    "items/alert.less"
                 ],
                 tasks: ['less'],
                 options: {

@@ -15,24 +15,35 @@
     border: 1px solid grey;
     padding: 2px;
     margin: 5px 0;
-    
-    &:hover{
-      background: #ffffff;
+    &.hover{
+      background: #fff;
       box-shadow: 0 0 2px white, 0 0 5px white;
+      border: 1px solid red;
+      .ico-title{
+        display: block;
+      }
+    }
+    &:hover{
+      background: #fff;
+      box-shadow: 0 0 2px white, 0 0 5px white;
+      .ico-title{
+        display: block;
+      }
     }
     .title{
       font-weight: bold;
       padding: 5px 0;
       border-bottom: 1px solid #cdcdcd;
-      .ico-title{
-        float: right;
-        width: 22px;
-        height: 16px;
-        background: url("../img/510title.png") no-repeat center;
-        background-size: 100% 100%;
 
-      }
 
+    }
+    .ico-title{
+      float: right;
+      width: 22px;
+      height: 16px;
+      display: none;
+      background: url("../img/510title.png") no-repeat center;
+      background-size: 100% 100%;
     }
     .content{
       padding: 5px 0 0 0;

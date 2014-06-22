@@ -1,22 +1,12 @@
 <?php
-$connect = array(
-    'login' => 'root',
-    'pass' => 'astalavista',
-    'host' => 'localhost',
-    'table' => 'monitoring',
-);
 
-$db = mysql_connect($connect['host'], $connect['login'], $connect['pass']) //соединение с базой данных
-or die('connect to database failed');
-$table = $connect['table'];
+require_once('loginpass.php');
 
-mysql_select_db($table) or die('db not found');
 
-mysql_query("SET NAMES utf8");
-//mysql_query("SET CHARACTER SET utf8 ");
+
+
 $res = mysql_query("SELECT * FROM fiveten ORDER BY name");
 $points = array();
-
 if (mysql_num_rows($res) > 0) {
 
 

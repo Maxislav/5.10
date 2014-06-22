@@ -25,10 +25,10 @@ requirejs.config({
         }
     }
 });
-
+var app;
 require([
 "app"
 ], function(js){
-    var app = new js();
+    app = new js();
     app.init();
 })

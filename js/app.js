@@ -67,6 +67,76 @@ define(function(){
                 }
             }
         };
+
+
+        this.alert = new function(){
+
+            this.show = function(_title, _mess, _ok, _cancel){
+                init(_title, _mess, _ok, _cancel,function(el){
+                    el.fadeTo(222,1);
+                });
+            }
+            function init(_title, _mess, _ok, _cancel,success){
+                var el;
+                var elclose;
+                var eltitle;
+                var elcomment;
+                var elok, elcancel;
+                var title, mess, ok, cancel;
+                title = _title;
+                mess = _mess;
+                ok = _ok;
+                cancel = _cancel;
+
+                require([
+                'text!items/alert.html'
+                ],function(html){
+                    el = $(document.createElement('div'));
+                    el.attr('class', 'alert');
+                    el.append(html);
+                    el.height($(window).height());
+                    eltitle = el.find('.title-alert');
+
+
+                    eltitle.html(title ? title : 'Alert');
+                    elcomment = el.find('.comment');
+                    elcomment.html(mess);
+
+                    $('body').append(el);
+                    elclose = el.find('.close');
+
+                    elclose.on('click', function(){
+                        close(el)
+                    })
+                    if(ok){
+                       elok = $(document.createElement('div'));
+                       elok.html('Ok').attr('class', 'ok');
+                       el.find('.container-button').append(elok);
+                       elok.on('click', function(){
+                           ok && ok();
+                           close(el);
+                       })
+                    }
+                    if(cancel){
+                        elcancel = $(document.createElement('div'));
+                        elcancel.html('Cancel').attr('class', 'cancel');
+                        el.find('.container-button').append(elcancel);
+                        elcancel.on('click', function(){
+                            close(el);
+                        })
+                    }
+
+                    success && success(el);
+                })
+            }
+
+            function close(el){
+                el.fadeTo(222,0, function(){
+                    el.remove();
+                    el = null;
+                })
+            }
+        }
     }
 })
 
