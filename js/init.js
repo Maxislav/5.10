@@ -3,7 +3,7 @@ var map;
 var f = parseFloat;
 
 requirejs.config({
-    waitSeconds: 15,
+    waitSeconds: 60,
     baseUrl: '',
 
     paths: {
