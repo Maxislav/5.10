@@ -68,6 +68,22 @@ define(function () {
             title.html(ico).attr('class', 'title');
             title.append(point.name);
             var content = $(document.createElement('div'));
+            var regexp = /http(.+)$|^http(.+)\s/g;
+
+            var r = point.popup.match(regexp) || [];
+            if(r.length){
+                for(var i = 0; i< r.length; i++){
+                    var regdomen = /https?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i;
+                    var tag = point.popup.match(regdomen) || [];
+                    if(!tag.length){
+                        regdomen = /http?\:\/\/([^\/:?#]+)(?:[\/:?#]|$)/i;
+                        tag = point.popup.match(regdomen) || [];
+                    }
+                    !tag.length && (tag[1] = 'href');
+                    point.popup = point.popup.replace(r[i], '<a href="'+r[i]+'"  target="_blank">'+tag[1]+'</a>');
+
+                }
+            }
             content.html(point.popup).attr('class', 'content');
             row.append(title).append(content).attr('class','row');
 
@@ -82,7 +98,7 @@ define(function () {
             var marker = L.marker(latlng, {icon: myIcon}).bindPopup(point.popup).addTo(map);
             marker.on('mouseover', function(){
                 row.addClass('hover');
-                console.log(row.position().top)
+               // console.log(row.position().top)
                 var h  = scrollbar.find('.overview').height() - ($(window).height()-50);
                if(h<0){
                    scrollbar && scrollbar.tinyscrollbar_update(0)
