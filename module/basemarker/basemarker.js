@@ -32,7 +32,12 @@ define(function () {
             type: 'POST',
 
             success: function (d) {
-                arraypoints = JSON.parse(d);
+                try{
+                    arraypoints = JSON.parse(d);
+
+                }catch (err){
+                    app.alert.show(null, d, function(){})
+                }
                 setMarker(arraypoints)
             },
             error: function (a, b) {
