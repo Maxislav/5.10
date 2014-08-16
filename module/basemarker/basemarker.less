@@ -1,9 +1,9 @@
-.sprite-points{
-  width: 180px;
+.sprite-points, .sprite-region{
+  width: 186px;
   min-height: 300px;
   background: rgba(255,255,255, 0.7);
   position: absolute;
-  left: 5px;
+  right: 5px;
   top: 5px;
   z-index: 2;
   box-shadow: 0 0px 2px black,  0 0px 5px white;
@@ -13,21 +13,22 @@
   }
   .row{
     border-radius: 3px;
-    border: 1px solid grey;
+    border: 3px solid #c1c1c1;
     padding: 2px;
     margin: 5px 1px;
     width: 157px;
     &.hover{
       background: #fff;
-      box-shadow: 0 0 2px white, 0 0 5px white;
-      border: 1px solid red;
+      box-shadow: 0 0 2px black, 0 0 5px black;
+      border: 3px solid red;
       .ico-title{
         display: block;
       }
     }
     &:hover{
       background: #fff;
-      box-shadow: 0 0 2px white, 0 0 5px white;
+      border: 3px solid red;
+      box-shadow: 0 0 2px black, 0 0 5px black;
       .ico-title{
         display: block;
       }

@@ -13,7 +13,9 @@ requirejs.config({
         basemarker: 'module/basemarker/basemarker',
         text: 'lib/requirejs/text',
         build: 'build/scripts.min',
-        addpoint: 'module/addpoint/addpoint'
+        addpoint: 'module/addpoint/addpoint',
+        region: 'module/region/region',
+        lodash: 'lib/lodash/lodash.compat.min'
     },
 
     shim:{

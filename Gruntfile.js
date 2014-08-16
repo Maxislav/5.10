@@ -8,7 +8,8 @@ module.exports = function (grunt) {
                 src: [
                     'lib/jquery/jquery-1.11.1.min.js',
                     'lib/jquery/jquery.tinyscrollbar.js',
-                    'lib/leaflet/leaflet.js'
+                    'lib/leaflet/leaflet.js',
+                    'lib/lodash/lodash.compat.min.js'
                 ],
                 dest: 'build/scripts.js'
             }
@@ -42,9 +43,10 @@ module.exports = function (grunt) {
                         "lib/leaflet/leaflet.css",
                        "css/main.less",
                         "module/basemarker/basemarker.less",
-                        "css/tinyscrollbar.css",
+                        "css/tinyscrollbar.less",
                         "module/addpoint/addpoint.less",
-                        "items/alert.less"
+                        "items/alert.less",
+                        "module/region/region.less"
                     ]
                 }
             }
@@ -56,9 +58,10 @@ module.exports = function (grunt) {
                 files: [
                     "css/main.less",
                     "module/basemarker/basemarker.less",
-                    "css/tinyscrollbar.css",
+                    "css/tinyscrollbar.less",
                     "module/addpoint/addpoint.less",
-                    "items/alert.less"
+                    "items/alert.less",
+                    "module/region/region.less"
                 ],
                 tasks: ['less'],
                 options: {
