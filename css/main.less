@@ -12,11 +12,41 @@ body{
 html{
   height: 100%;
 }
-
-#fatherBlock{
+.table{
+  display: table;
+  .table-cell{
+    display: table-cell;
+  }
+}
+.width100{
   width: 100%;
-  height: 100%;
-  position: relative;
+}
+#fatherBlock{
+  .head-main{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#28343b+0,5c6368+97,687172+100 */
+    background: rgb(40,52,59); /* Old browsers */
+    background: -moz-linear-gradient(top,  rgba(40,52,59,1) 0%, rgba(92,99,104,1) 97%, rgba(104,113,114,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(40,52,59,1)), color-stop(97%,rgba(92,99,104,1)), color-stop(100%,rgba(104,113,114,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(40,52,59,1) 0%,rgba(92,99,104,1) 97%,rgba(104,113,114,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(40,52,59,1) 0%,rgba(92,99,104,1) 97%,rgba(104,113,114,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(40,52,59,1) 0%,rgba(92,99,104,1) 97%,rgba(104,113,114,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(40,52,59,1) 0%,rgba(92,99,104,1) 97%,rgba(104,113,114,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28343b', endColorstr='#687172',GradientType=0 ); /* IE6-9 */
+  border-bottom: 1px solid black;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    .table-cell{
+     // padding: 15px;
+      vertical-align: middle;
+    }
+    .logo{
+      width: 40px;
+      height: 40px;
+      background: url("../img/logo510.png") no-repeat center;
+      background-size: 100% auto;
+    }
+  }
 }
 #maped{
   width: 100%;
@@ -26,10 +56,7 @@ html{
   width: 100%;
   height: 100%;
 
- tr>td{
-    width: 100%;
-    height: 100%;
-  }
+
 }
 table{
   border-spacing: 0;

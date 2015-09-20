@@ -14,10 +14,10 @@ define(function () {
         fatherBlock.append(item);
 
         item.css({
-            height: fatherBlock.height() - 10
+            height: fatherBlock.height() - 50
         });
 
-        scrollbar.height(fatherBlock.height() - 50);
+        scrollbar.height(fatherBlock.height() - 70);
 
         //item.append(html)
 

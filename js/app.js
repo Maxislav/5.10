@@ -13,6 +13,7 @@ define(function () {
 
 
         function initmap() {
+            $('#maped').height($(window).height()-$('.head-main').height());
             map = L.map('maped').setView([50.43345, 30.53], 11);
 
             osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
