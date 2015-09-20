@@ -33,4 +33,4 @@ require([
 ], function(js){
     app = new js();
     app.init();
-})
+});

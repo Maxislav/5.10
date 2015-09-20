@@ -8,14 +8,16 @@ define(function () {
         var viewport = item.find('.overview');
         var scrollbar = item.find('.scrollbar1');
         var buttonAdd = item.find('.add');
+        var fatherBlock =  $('#fatherBlock')
 
         item.attr('class', 'sprite-points');
-        $('body').append(item);
-        item.css({
-            height: $(window).height() - 10
-        })
+        fatherBlock.append(item);
 
-        scrollbar.height($(window).height() - 50)
+        item.css({
+            height: fatherBlock.height() - 10
+        });
+
+        scrollbar.height(fatherBlock.height() - 50);
 
         //item.append(html)
 
@@ -102,7 +104,7 @@ define(function () {
 
             viewport.prepend(row);
             var marker = L.marker(latlng, {icon: myIcon}).bindPopup(point.popup).addTo(map);
-            marker.on('mouseover',function () {
+            marker.on('mouseover', function () {
                 row.addClass('hover');
                 // console.log(row.position().top)
                 var h = scrollbar.find('.overview').height() - ($(window).height() - 50);

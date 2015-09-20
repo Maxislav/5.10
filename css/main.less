@@ -12,9 +12,15 @@ body{
 html{
   height: 100%;
 }
-#maped{
-  height: 100%;
+
+#fatherBlock{
   width: 100%;
+  height: 100%;
+  position: relative;
+}
+#maped{
+  width: 100%;
+  height: 100%;
 }
 .main{
   width: 100%;
@@ -39,13 +45,16 @@ table{
   padding: 0;
 }
 .leaflet-control-container{
+  .leaflet-right .leaflet-control {
+    margin-right: 0px;
+  }
   .leaflet-left{
-    right: 200px !important;
+    right: 5px !important;
     left: inherit;
     top: 40px;
   }
   .leaflet-top.leaflet-right{
-    right: 190px;
+    right: 5px;
   }
 }
 body>a{

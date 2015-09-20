@@ -7,13 +7,13 @@ define(function () {
         this.init = function () {
             initmap();
             events();
-            setRegion();
+            //setRegion();
             setMarker();
         };
 
 
         function initmap() {
-            map = L.map('maped').setView([48.9, 30.49], 6);
+            map = L.map('maped').setView([50.43345, 30.53], 11);
 
             osm = new L.TileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
             ggl = new L.TileLayer('http://mt0.googleapis.com/vt/lyrs=m@207000000&hl=ru&src=api&x={x}&y={y}&z={z}&s=Galile', {maxZoom: 18, minZoom: 3});
@@ -24,14 +24,14 @@ define(function () {
             layerControl.addTo(map);
         };
 
-        function setRegion() {
+      /*  function setRegion() {
             require([
                 'region',
                 'text!module/region/sprite.html'
             ], function (js, html) {
                 new js(html)
             })
-        }
+        }*/
 
         function setMarker() {
             require([
@@ -90,7 +90,7 @@ define(function () {
                 }
             }
             return text
-        }
+        };
 
         this.alert = new function () {
 
@@ -98,7 +98,7 @@ define(function () {
                 init(_title, _mess, _ok, _cancel, function (el) {
                     el.fadeTo(222, 1);
                 });
-            }
+            };
             function init(_title, _mess, _ok, _cancel, success) {
                 var el;
                 var elclose;
@@ -130,7 +130,7 @@ define(function () {
 
                     elclose.on('click', function () {
                         close(el)
-                    })
+                    });
                     if (ok) {
                         elok = $(document.createElement('div'));
                         elok.html('Ok').attr('class', 'ok');
@@ -159,8 +159,8 @@ define(function () {
                     el = null;
                 })
             }
-        }
+        };
     }
-})
+});
 
 

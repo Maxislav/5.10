@@ -5,9 +5,15 @@
     'host' => 'mysql.hostinger.com.ua',
     'table' => 'u421137053_1',
 );*/
-$connect = array(
+/*$connect = array(
     'login' => 'root',
     'pass' => 'astalavista',
+    'host' => 'localhost',
+    'table' => 'monitoring',
+);*/
+$connect = array(
+    'login' => 'root',
+    'pass' => '',
     'host' => 'localhost',
     'table' => 'monitoring',
 );
